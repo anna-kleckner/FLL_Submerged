@@ -1,1 +1,22 @@
+import motor
+from hub import light, port
+from hub import light_matrix
 
+def backup_to_wall():
+    #left: port A
+    motor.run_for_degrees(port.A, 720, 720)
+
+    #right: port E
+    motor.run_for_degrees(port.E, -720, 720)
+
+def forward():
+    motor.run_for_degrees(port.A, -720, 360)
+    motor.run_for_degrees(port.E, 720, 360)
+
+def main():
+
+    backup_to_wall()
+
+    forward()
+
+main()
